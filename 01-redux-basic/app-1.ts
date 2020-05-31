@@ -4,17 +4,49 @@ interface Action {
   payload?: any;
 }
 
-const incrementadorAction: Action = {
-  type: 'INCREMENTAR'
-}
-
 function reducer(state = 10, action: Action) {
-  if (action.type === 'INCREMENTAR') {
-    return state += 1;
+  switch (action.type) {
+    case 'INCREMENTAR':
+      return state + 1;
+    case 'DECREMENTAR':
+      return state - 1;
+    case 'MULTIPLICAR':
+      return state * action.payload;
+    case 'DIVIDIR':
+      return state / action.payload;
+    default:
+      return state;
   }
-  return state;
 }
 
 // Usar el reducer
 
-console.log(reducer(10, incrementadorAction));
+// Sumar
+const incrementadorAction: Action = {
+  type: 'INCREMENTAR'
+};
+
+console.log('Sumar:', reducer(10, incrementadorAction)); // 11
+
+// Restar
+const decrementadorAction: Action = {
+  type: 'DECREMENTAR'
+};
+
+console.log('Restar:', reducer(10, decrementadorAction)); // 9
+
+// Multiplicar
+const multiplicarAction: Action = {
+  type: 'MULTIPLICAR',
+  payload: 2
+};
+
+console.log('Multiplicar:', reducer(10, multiplicarAction)); // 20
+
+// Dividir
+const dividirAction: Action = {
+  type: 'DIVIDIR',
+  payload: 2
+};
+
+console.log('Dividir:', reducer(10, dividirAction)); // 5
