@@ -24,3 +24,7 @@ export const toggleAll = createAction(
   '[TODO] Toggle All',
   props<{ completado: boolean }>()
 );
+
+export const borrarCompleatado = createAction(
+  '[TODO] Borrar Completados Todo'
+);

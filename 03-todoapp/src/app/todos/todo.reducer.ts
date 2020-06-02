@@ -12,6 +12,7 @@ export const estadoInicial: TodoModels[] = [
 const _todoReducer = createReducer(estadoInicial,
   on(actions.crear, (state, {texto}) => [...state, new TodoModels(texto)]),
   on(actions.borrar, ((state, {id}) => state.filter(todo => todo.id !== id))),
+  on(actions.borrarCompleatado, (state => state.filter(todo => !todo.completado))),
   on(actions.toggle, (state, {id}) => {
     return state.map(todo => {
       if (todo.id === id) {
