@@ -12,7 +12,10 @@ export class AuthService {
   }
 
   crearUsuario(nombre: string, email: string, password: string) {
-    // console.log({nombre, email, password});
     return this.auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  loginUsuario(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password);
   }
 }
