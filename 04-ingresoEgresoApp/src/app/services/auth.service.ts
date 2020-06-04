@@ -11,6 +11,12 @@ export class AuthService {
   ) {
   }
 
+  initAuthListener() {
+    this.auth.authState.subscribe(fuser => {
+      console.log(fuser);
+    });
+  }
+
   crearUsuario(nombre: string, email: string, password: string) {
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
