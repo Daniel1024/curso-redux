@@ -10,6 +10,6 @@ export class IngresoEgresoModel {
     public descripcion: string,
     public monto: string,
     public tipo: string,
-    // public uid?: string,
+    public uid?: string,
   ) { }
 }
