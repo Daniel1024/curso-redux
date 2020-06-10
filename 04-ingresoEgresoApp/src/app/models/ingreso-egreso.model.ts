@@ -1,3 +1,10 @@
+export interface IngresoEgreso {
+  uid?: string,
+  descripcion: string,
+  monto: string,
+  tipo: string
+}
+
 export class IngresoEgresoModel {
   constructor(
     public descripcion: string,
