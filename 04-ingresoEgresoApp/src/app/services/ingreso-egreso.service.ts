@@ -31,4 +31,10 @@ export class IngresoEgresoService {
         })
       )));
   }
+
+  borrarIngresoEgreso(uidItem: string) {
+    return this.firestore
+      .doc<IngresoEgreso>(`${this.authService.user.uid}/ingresos-egresos/items/${uidItem}`)
+      .delete();
+  }
 }
