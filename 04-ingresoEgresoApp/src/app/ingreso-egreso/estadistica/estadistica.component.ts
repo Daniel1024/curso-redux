@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
 import { IngresoEgresoModel } from '../../models/ingreso-egreso.model';
-import { toNumbers } from '@angular/compiler-cli/src/diagnostics/typescript_version';
+import { MultiDataSet, Label } from 'ng2-charts';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,6 +19,10 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   totalEgresos: number = 0;
 
   ingresosEgresosSubs: Subscription;
+
+  // Doughnut
+  doughnutChartLabels: Label[] = ['Ingresos', 'Egresos'];
+  doughnutChartData: MultiDataSet = [];
 
   constructor(
     private store: Store<AppState>
@@ -44,6 +48,8 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
         this.egresos++;
       }
     }
+
+    this.doughnutChartData = [[this.totalIngresos, this.totalEgresos]];
   }
 
 }

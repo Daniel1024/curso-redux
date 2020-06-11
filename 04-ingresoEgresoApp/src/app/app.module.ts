@@ -23,6 +23,8 @@ import { appReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
     AngularFirestoreModule,
     AngularFireAuthModule,
     StoreModule.forRoot(appReducers),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
