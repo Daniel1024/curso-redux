@@ -42,7 +42,7 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
     this.totalEgresos = 0;
     this.ingresos = 0;
     this.egresos = 0;
-    
+
     for (const item of items) {
       const monto = parseInt(item.monto);
       if (item.tipo === 'ingreso') {
