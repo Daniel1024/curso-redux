@@ -23,14 +23,18 @@ const _usersReducer = createReducer(usersInitialState,
     ...state,
     loaded: false,
     loading: false,
-    users: [...users]
+    users: users
   })),
 
   on(loadUsersFail, (state, { payload }) => ({
     ...state,
     loaded: false,
     loading: false,
-    error: payload
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message
+    }
   }))
 );
 
