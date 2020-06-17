@@ -7,20 +7,20 @@ import { loadUsers } from '../../store/actions';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class ListComponent implements OnInit {
   users: UserModel[];
 
   constructor(
     private store: Store<AppState>
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+    this.store.select('users')
+      .subscribe(({ users }) => this.users = users);
     this.store.dispatch(loadUsers());
-    // this.userService.getUsers()
-    //   .subscribe(users => this.users = users);
   }
 
 }
