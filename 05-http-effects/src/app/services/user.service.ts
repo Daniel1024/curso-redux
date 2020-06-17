@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,6 @@ export class UserService {
 
   getUsers() {
     return this.http.get(`${ this.url }/users`)
-      .pipe(map(resp => resp['data']));
+      .pipe<UserModel[]>(map(resp => resp['data']));
   }
 }
