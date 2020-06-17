@@ -11,13 +11,11 @@ import { UserModel } from '../../models/user.model';
 export class ListComponent implements OnInit {
   users: UserModel[];
 
-  constructor(
-    public userService: UserService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.getUsers()
-      .subscribe(users => this.users = users);
+    // this.userService.getUsers()
+    //   .subscribe(users => this.users = users);
   }
 
 }
