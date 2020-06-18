@@ -17,4 +17,9 @@ export class UserService {
     return this.http.get(`${ this.url }/users?delay=5`)
       .pipe(map(resp => resp['data']));
   }
+
+  getUserById(id: string) {
+    return this.http.get(`${ this.url }/users/${ id }?delay=5`)
+      .pipe(map(resp => resp['data']));
+  }
 }
