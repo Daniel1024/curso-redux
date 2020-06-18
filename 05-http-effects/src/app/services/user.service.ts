@@ -14,7 +14,7 @@ export class UserService {
   }
 
   getUsers() {
-    return this.http.get(`${ this.url }/users?delay=10`)
+    return this.http.get(`${ this.url }/users?delay=5`)
       .pipe(map(resp => resp['data']));
   }
 }
